@@ -15,8 +15,12 @@ export default class BlogRepository {
     }
 
     async getBlogs(payload: Blog): Promise<Blog[]>{
-        const Users = await readData(userSchema, payload);
+        const Users = await readData(userSchema, payload).sort({_id: -1}).select(['title', 'excerpt']);
         return Users;
+    }
+
+    async getLatest(): Promise<Blog[]> {
+        return await readData(userSchema, {}).limit(4).sort({_id: -1}).select(['title', 'excerpt']);
     }
 
     async getBlog(payload: Blog): Promise<Blog> {

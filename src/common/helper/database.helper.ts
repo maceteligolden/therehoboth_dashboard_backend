@@ -13,7 +13,7 @@ export default class DatabaseHelper {
       await mongoose.connect(`${DB_URL}`).then((res: any)=> {
         console.log("Database connected successfully")
       }).catch((err: any)=>{
-        console.log("Seems an error occurred while connecting to mongo")
+        console.log(err.message)
       })
   }
 

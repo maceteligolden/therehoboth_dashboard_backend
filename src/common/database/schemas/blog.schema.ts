@@ -13,6 +13,10 @@ const blogSchema: Schema =   new Schema<Blog>({
     type: String,
     required: true
   },
+  excerpt: {
+    type: String,
+    required: true
+  },
   created_at: {
       type: Date,
       default: function() {

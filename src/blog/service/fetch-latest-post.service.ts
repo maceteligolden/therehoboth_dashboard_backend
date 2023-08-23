@@ -6,7 +6,7 @@ import BlogRepository from "../../common/database/repositories/blog.repository";
 
 
 @injectable()
-export default class GetBlogsService implements IService<Request, Response> {
+export default class FetchLatestPostService implements IService<Request, Response> {
     constructor(
         private blogRepository: BlogRepository,
         private httpHelper: Http
@@ -17,12 +17,12 @@ export default class GetBlogsService implements IService<Request, Response> {
     async execute(req: Request, res: Response){
         try{
             
-            const data = await this.blogRepository.getBlogs({});
-            console.log(data)
+            const data = await this.blogRepository.getLatest();
+
             this.httpHelper.Response({
                 res,
                 status: "success",
-                message: "successfully fetched all blogs",
+                message: "successfully fetched latest blogs",
                 data
             })
  

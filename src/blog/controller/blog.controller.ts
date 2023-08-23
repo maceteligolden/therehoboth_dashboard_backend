@@ -5,6 +5,7 @@ import GetBlogService from "../service/get-blog.service";
 import GetBlogsService from "../service/get-blogs.service";
 import DeleteBlogService from "../service/delete-blog.service";
 import UpdateBlogService from "../service/update-blog.service";
+import FetchLatestPostService from "../service/fetch-latest-post.service";
 
 @injectable()
 export default class BlogController {
@@ -13,7 +14,8 @@ export default class BlogController {
         private getBlogService: GetBlogService,
         private getBlogsService: GetBlogsService,
         private deleteBlogService: DeleteBlogService,
-        private updateBlogService: UpdateBlogService
+        private updateBlogService: UpdateBlogService,
+        private fetchLatestBlogService: FetchLatestPostService
     ){
 
     }
@@ -36,5 +38,9 @@ export default class BlogController {
 
     async getBlogs(req: Request, res: Response){
         await this.getBlogsService.execute(req, res)
+    }
+
+    async fetchLatestBlog(req: Request, res: Response){
+        await this.fetchLatestBlogService.execute(req, res)
     }
 }

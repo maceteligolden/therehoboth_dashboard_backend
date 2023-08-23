@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
+    "build": "tsc",
     "serve": "node src/index.ts",
     "dev:start": "nodemon src/index.ts",
     "docker:start": "docker-compose up -d",
@@ -12,6 +13,10 @@
     "test": "jest"
   },
   "keywords": [],
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
   "author": "Mac-Eteli Golden",
   "license": "ISC",
   "devDependencies": {

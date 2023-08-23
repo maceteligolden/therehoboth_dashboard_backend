@@ -2,7 +2,7 @@ import { NextFunction } from "express";
 import { Response, Request } from "express";
 import Token from "../helper/token.helper";
 import { container } from "tsyringe";
-import UserRepository from "../database/repository/user.repository";
+import UserRepository from "../database/repositories/user.repository";
 
 const SECRET_KEY = process.env.SECRET_KEY || "";
 

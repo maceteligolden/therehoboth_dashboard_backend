@@ -9,6 +9,7 @@ blogRouter.post('/create', (req: Request, res: Response) => blogController.creat
 blogRouter.patch('/:id', (req: Request, res: Response) => blogController.updateBlog(req, res));
 blogRouter.delete('/:id', (req: Request, res: Response) => blogController.deleteBlog(req, res));
 blogRouter.get('/', (req: Request, res: Response) => blogController.getBlogs(req, res));
+blogRouter.get('/latest', (req: Request, res: Response) => blogController.fetchLatestBlog(req, res));
 blogRouter.get('/:id', (req: Request, res: Response) => blogController.getBlog(req, res));
 
 export default blogRouter
